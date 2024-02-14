@@ -1,0 +1,17 @@
+[
+    {
+      "title": "Website voor lokale bakkerij",
+      "description": "Een responsieve website ontwikkelen voor een lokale bakkerij om hun producten te presenteren en online bestellingen te accepteren.",
+      "image": "images/bakkerij_website.jpg"
+    },
+    {
+      "title": "Mobiele app voor fitness tracking",
+      "description": "Een mobiele app bouwen waarmee gebruikers hun fitnessactiviteiten kunnen bijhouden, doelen kunnen stellen en voortgang kunnen volgen.",
+      "image": "images/fitness_app.jpg"
+    },
+    {
+      "title": "Data-analyse voor klantgedrag",
+      "description": "Analyseren van klantgegevens om inzichten te verkrijgen over koopgedrag, voorkeuren en trends om gerichte marketingcampagnes te ontwikkelen.",
+      "image": "images/data_analyse.jpg"
+    }
+  ]
