@@ -1,31 +1,33 @@
-// URL van het JSON-bestand dat je wilt ophalen
-const url = "projects.json";
+// URL van het JSON-bestand
+const jsonUrl = 'projects.json';
 
-// Een fetch-verzoek maken om het JSON-bestand op te halen
-fetch(url)
+// Fetchen van het JSON-bestand
+fetch(jsonUrl)
   .then(response => {
-    // Controleer of het verzoek succesvol is
+    // Controleren op fouten bij het ophalen van het bestand
     if (!response.ok) {
-      throw new Error('Netwerk respons was niet ok');
+      throw new Error('Netwerk response was niet ok');
     }
-    // Als het verzoek succesvol is, converteer de respons naar JSON
+    // JSON-gegevens omzetten naar een JavaScript object
     return response.json();
   })
   .then(data => {
-    // Hier kun je de JSON-gegevens gebruiken
-    console.log(data);
+    // Gegevens weergeven in de HTML
+    const outputDiv = document.getElementById('output');
+    data.forEach(item => {
+      // Maak een nieuw element aan voor elk item in de JSON-data
+      const newItem = document.createElement('div');
+      newItem.innerHTML = `
+        <h2>${item.title}</h2>
+        <p>${item.description}</p>
+        <img src="${item.image}" alt="${item.title}">
+      `;
+      // Voeg het nieuwe element toe aan de output
+      outputDiv.appendChild(newItem);
+    });
   })
   .catch(error => {
-    // Als er een fout optreedt tijdens het ophalen of verwerken van de JSON
-    console.error('Fout bij het ophalen van het JSON-bestand:', error);
+    // Afhandelen van fouten bij het fetchen van het JSON-bestand
+    console.error('Fout bij het fetchen van JSON-bestand:', error);
   });
 
-  function toonJSON(data) {
-    const container = document.getElementById('json-container');
-    // Maak een nieuwe <pre> element aan om de JSON-gegevens weer te geven
-    const preElement = document.createElement('pre');
-    // Converteer de JSON-gegevens naar een leesbare string en plaats deze in het <pre> element
-    preElement.textContent = JSON.stringify(data, null, 2);
-    // Voeg het <pre> element toe aan de container in de HTML
-    container.appendChild(preElement);
-  }
